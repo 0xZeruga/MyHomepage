@@ -1,0 +1,15 @@
+$gutter: 10px;
+$containerWidth: 768px;
+$columnWidth: 5.5;
+$column: 12;
+$columnGutter: (100 - ($columnWidth * $column)) / ($column - 1);
+
+$primary-color: #2A363B;
+$link-color: #99B898;
+$light-grey: #F6F6F6;
+
+$breakpoints: (
+		'small' : 767px,
+		'medium' : 992px,
+		'large' : 1200px
+);

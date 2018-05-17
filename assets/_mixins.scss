@@ -1,0 +1,88 @@
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import 'variables';
+
+@mixin font-family-open-sans() {
+	font-family: 'Open Sans', sans-serif;
+}
+
+@mixin font-family-monospace() {
+	font-family: 'Inconsolata', serif;
+}
+
+@mixin respond-to($breakpoint) {
+	// Retrieves the value from the key
+	$value: map-get($breakpoints, $breakpoint);
+
+	// If the key exists in the map
+	@if $value != null {
+		// Prints a media query based on the value
+		@media (min-width: $value) {
+			@content;
+		}
+	}
+
+		// If the key doesn't exist in the map
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+	}
+}
+
+@mixin center($axis: "both") {
+	position: absolute;
+	@if $axis == "y" {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	@if $axis == "x" {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@if $axis == "both" {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin fadeInUp($duration: 1s, $delay: .2s, $function: ease, $fill: both) {
+	animation-name: fadeInUp;
+	animation-duration: $duration;
+	animation-delay: $delay;
+	animation-timing-function: $function;
+	animation-fill-mode: $fill;
+}
+
+%ptag {
+	@include font-family-monospace;
+	margin-bottom: 10px;
+	line-height: 24px;
+}
+
+// ANIMATIONS
+
+@keyframes blink {
+	49% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	89% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

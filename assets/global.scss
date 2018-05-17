@@ -1,0 +1,143 @@
+@import 'mixins';
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	@include font-family-open-sans;
+	border-left: $gutter solid #FFF;
+	border-right: $gutter solid #FFF;
+	color: $primary-color;
+
+	&::before,
+	&::after {
+		content: "";
+		position: fixed;
+		background: #FFF;
+		left: 0;
+		right: 0;
+		height: $gutter;
+		z-index: 9;
+	}
+
+	&::before {
+		top: 0
+	}
+
+	&::after {
+		bottom: 0
+	}
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+a {
+	color: $link-color;
+}
+
+p {
+	@extend %ptag;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+hr.dash {
+	height: 1px;
+	width: 30px;
+	background: $primary-color;
+	margin: 20px auto;
+	border: none;
+}
+
+canvas {
+	display: block;
+	vertical-align: bottom;
+}
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+// GRID
+
+// GRID
+
+.row {
+	@include respond-to(small) {
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+		max-width: $containerWidth;
+	}
+
+	& + & {
+		margin-top: $gutter * 4;
+	}
+
+	@include clearfix;
+}
+
+[class*="col"] {
+	& + & {
+		margin-top: $gutter * 2;
+	}
+
+	@include respond-to(small) {
+		& + & {
+			margin-top: 0;
+		}
+
+		float: left;
+		display: inline;
+		min-height: 1px;
+		position: relative;
+		margin-left: 1% * $columnGutter;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
+[class*="push"] {
+	@include respond-to(small) {
+		position: relative;
+	}
+}
+
+@for $i from 1 through $column {
+	$colWidth: 1% * ($columnWidth * $i) + ($columnGutter *($i - 1));
+	$colWidth2: 1% * ($columnWidth * $i) + ($columnGutter * $i);
+
+	@include respond-to(small) {
+		.col-#{$i} {
+			width: $colWidth;
+		}
+
+		.push-#{$i} {
+			left: $colWidth2;
+		}
+	}
+}
