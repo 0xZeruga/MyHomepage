@@ -2,7 +2,7 @@
 	<div id="contact" class="very-communicate">
 		<div class="row">
 			<div class="col-12">
-				<h2 id="email">Say hi</h2>
+				<h2 id="email">I'm interested</h2>
 			</div>
 		</div>
 		<div class="row dontlikesmalltalkbtw">

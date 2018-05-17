@@ -3,15 +3,15 @@
 		<div class="row">
 			<div class="col-10 push-1">
 				<p>
-					A graduate of Networking/Telecomms with {{ $store.state.yrs }} years of professional experience
-					working in various web related roles, I have a wide range of skills;
-					full stack development, user experience and design.
+					A graduate of Game Development with 2 years of professional experience
+					in a diverse career, from an indie game studio with less than a handful 
+					employees to a gargantuan telecom giant. I have a wide variety of skills
+					and spend a fair share of my spare time to refining those.
 				</p>
 				<p>
-					However, I mainly focus on front end development but with experience
-					in all these disciplines, I am able to work on any project
-					with the full scope in mind; a valuable approach
-					since I can easily provide insight and advice on all aspects of a project.
+					I'm always looking forward to meeting new people and to learn more as I
+					help them solve their problems in areas related to cryptocurrencies & blockchain,
+					game design, project management or software development.
 				</p>
 			</div>
 		</div>
